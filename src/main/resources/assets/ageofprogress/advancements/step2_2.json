@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_hoe"
+    },
+    "title": {
+      "translate": "advancements.step2_2.title"
+    },
+    "description": {
+      "translate": "advancements.step2_2.description"
+    }
+  },
+  "parent": "ageofprogress:step2",
+  "criteria": {
+    "step2_2": {
+      "trigger": "step2_2"
+    }
+  }
+}

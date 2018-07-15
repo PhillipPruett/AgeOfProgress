@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.step3.title"
+    },
+    "description": {
+      "translate": "advancements.step3.description"
+    }
+  },
+  "parent": "ageofprogress:step2_1",
+  "criteria": {
+    "step3": {
+      "trigger": "step3"
+    },
+    "step2_1": {
+      "trigger": "step2_1"
+    },
+    "step2_2": {
+      "trigger": "step2_2"
+    }
+  }
+}
