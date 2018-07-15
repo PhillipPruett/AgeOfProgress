@@ -105,7 +105,7 @@ public class CustomTrigger implements ICriterionTrigger<CustomTrigger.Instance> 
     /**
      * Deserialize a ICriterionInstance of this trigger from the data in the JSON.
      *
-     * @param json the json
+     * @param json    the json
      * @param context the context
      * @return the tame bird trigger. instance
      */

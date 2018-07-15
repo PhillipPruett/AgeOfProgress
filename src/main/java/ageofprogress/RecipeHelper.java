@@ -39,6 +39,12 @@ public class RecipeHelper {
 
         registry.unfreeze();
         for (IForgeRegistryEntry entry : items) {
+// TODO: 7/15/2018 unable to unhide recipes with JEI as handlers are not executed on the main Minecraft thread, causing JEI to throw
+//            IRecipe recipe = CraftingManager.REGISTRY.getObject(entry.getRegistryName());
+//            IRecipeRegistry recipeRegistry = JeiPlugin.JeiRunTime.getRecipeRegistry();
+//            IRecipeWrapper recipeWrapper = recipeRegistry.getRecipeWrapper(recipe, VanillaRecipeCategoryUid.CRAFTING);
+//            recipeRegistry.unhideRecipe(recipeWrapper, VanillaRecipeCategoryUid.CRAFTING);
+
             modifiableRegistry.register(entry);
             System.out.format("Unlocked recipes for: %s%n", entry.getRegistryName());
         }

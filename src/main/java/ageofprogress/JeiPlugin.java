@@ -13,6 +13,7 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 public class JeiPlugin implements IModPlugin {
 
     public static IIngredientBlacklist blacklist;
+    public static IJeiRuntime JeiRunTime;
 
     @Override
     public void registerItemSubtypes(ISubtypeRegistry subtypeRegistry) {
@@ -38,12 +39,17 @@ public class JeiPlugin implements IModPlugin {
         //items from JEI so players don't think they are craftable.
         for (IForgeRegistryEntry<IRecipe> recipe : RecipeHelper.getBlackListedRecipes()) {
             System.out.format("JEI Blacklisting: %s%n", recipe.getRegistryName().toString());
-            blacklist.addIngredientToBlacklist(new ItemStack(Item.getByNameOrId(recipe.getRegistryName().toString())));
+            ItemStack itemStack = new ItemStack(Item.getByNameOrId(recipe.getRegistryName().toString()));
+            if (itemStack != null && !itemStack.isEmpty()) {
+                blacklist.addIngredientToBlacklist(itemStack);
+            } else {
+                System.out.format("JEI Itemstack was null or empty: %s%n", recipe.getRegistryName().toString());
+            }
         }
     }
 
     @Override
     public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
-        // jeiRuntime.
+        JeiRunTime = jeiRuntime;
     }
 }
