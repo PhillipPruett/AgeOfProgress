@@ -8,6 +8,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.IForgeRegistryModifiable;
 
 import java.util.Arrays;
@@ -29,15 +30,45 @@ public class RegisterRecipesEventHandler {
             "minecraft:wooden_button",
     };
 
+    static String[] stoneAgeTechnology = new String[]{
+            "minecraft:stone",
+            "minecraft:cobblestone",
+    };
+
+    static String[] ironAgeTechnology = new String[]{
+            "minecraft:iron_ingot",
+            "minecraft:gold_ingot",
+            "minecraft:glass",
+    };
+
+    static String[] enlightenedAgeTechnology = new String[]{
+            "minecraft:paper",
+            "minecraft:diamond",
+    };
+
+    static String[] redstoneAgeTechnology = new String[]{
+            "minecraft:redstone",
+    };
+
     @SubscribeEvent
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
         System.out.println("REMOVING RECIPES");
         IForgeRegistryModifiable modRegistry = (IForgeRegistryModifiable) event.getRegistry();
 
-        Set<String> toBeRemoved = recursivelyRemoveTechnology(woodenAgeTechnology, event.getRegistry().getEntries());
+        removeTechnology(event, modRegistry, redstoneAgeTechnology);
+        removeTechnology(event, modRegistry, enlightenedAgeTechnology);
+        removeTechnology(event, modRegistry, ironAgeTechnology);
+        removeTechnology(event, modRegistry, stoneAgeTechnology);
+        removeTechnology(event, modRegistry, woodenAgeTechnology);
+    }
 
-        for (String entry : toBeRemoved) {
-            RecipeHelper.removeRecipe(modRegistry.remove((new ResourceLocation(entry))), Step.step1);
+    private static void removeTechnology(RegistryEvent.Register<IRecipe> event, IForgeRegistryModifiable modRegistry, String[] redstoneAgeTechnology) {
+        Set<String> toBeRemoved = recursivelyRemoveTechnology(redstoneAgeTechnology, event.getRegistry().getEntries());
+        for (String remove : toBeRemoved) {
+            IForgeRegistryEntry entry = modRegistry.remove((new ResourceLocation(remove)));
+            if(entry != null) {
+                RecipeHelper.removeRecipe(entry, Step.step1);
+            }
         }
     }
 

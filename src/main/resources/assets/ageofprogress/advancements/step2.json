@@ -13,7 +13,17 @@
   "parent": "ageofprogress:step1",
   "criteria": {
     "step2": {
-      "trigger": "step2"
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:chest",
+            "count": {
+              "min": 1
+            }
+          }
+        ]
+      }
     }
   }
 }
