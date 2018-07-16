@@ -65,8 +65,8 @@ public class RegisterRecipesEventHandler {
         IForgeRegistryModifiable modRegistry = (IForgeRegistryModifiable) event.getRegistry();
         Set<String> toBeRemoved = recursivelyRemoveTechnology(redstoneAgeTechnology, event.getRegistry().getEntries());
         for (String remove : toBeRemoved) {
-            IForgeRegistryEntry entry = modRegistry.remove((new ResourceLocation(remove)));
-            if(entry != null) {
+            IForgeRegistryEntry entry = modRegistry.getValue((new ResourceLocation(remove)));
+            if (entry != null) {
                 RecipeHelper.removeRecipe(entry, age);
             }
         }

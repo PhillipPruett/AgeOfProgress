@@ -1,7 +1,5 @@
 package ageofprogress.eventHandlers;
 
-import ageofprogress.triggers.ModTriggers;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
