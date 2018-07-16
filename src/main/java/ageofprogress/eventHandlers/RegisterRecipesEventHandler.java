@@ -67,7 +67,7 @@ public class RegisterRecipesEventHandler {
         for (String remove : toBeRemoved) {
             IForgeRegistryEntry entry = modRegistry.getValue((new ResourceLocation(remove)));
             if (entry != null) {
-                RecipeHelper.removeRecipe(entry, age);
+                RecipeHelper.addRecipe(entry, age);
             }
         }
     }

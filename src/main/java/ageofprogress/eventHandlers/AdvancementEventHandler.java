@@ -13,15 +13,15 @@ public class AdvancementEventHandler {
 
         ResourceLocation id = event.getAdvancement().getId();
         if (id.equals(new ResourceLocation("ageofprogress", "wooden"))) {
-            RecipeHelper.discoverRecipes(Age.wooden);
+            RecipeHelper.unhideRecipes(Age.wooden);
         } else if (id.equals(new ResourceLocation("ageofprogress", "stone"))) {
-            RecipeHelper.discoverRecipes(Age.stone);
+            RecipeHelper.unhideRecipes(Age.stone);
         } else if (id.equals(new ResourceLocation("ageofprogress", "iron"))) {
-            RecipeHelper.discoverRecipes(Age.iron);
+            RecipeHelper.unhideRecipes(Age.iron);
         } else if (id.equals(new ResourceLocation("ageofprogress", "enlightened"))) {
-            RecipeHelper.discoverRecipes(Age.enlightened);
+            RecipeHelper.unhideRecipes(Age.enlightened);
         } else if (id.equals(new ResourceLocation("ageofprogress", "redstone"))) {
-            RecipeHelper.discoverRecipes(Age.redstone);
+            RecipeHelper.unhideRecipes(Age.redstone);
         }
     }
 }
