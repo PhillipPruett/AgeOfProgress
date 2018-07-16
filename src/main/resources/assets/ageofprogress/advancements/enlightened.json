@@ -17,7 +17,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:golden_rail",
+            "item": "minecraft:gold_block",
             "count": {
               "min": 1
             }
