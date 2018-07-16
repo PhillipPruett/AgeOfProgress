@@ -1,23 +1,23 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:stone_pickaxe"
+      "item": "minecraft:diamond_pickaxe"
     },
     "title": {
-      "translate": "advancements.step2.title"
+      "translate": "advancements.enlightened.title"
     },
     "description": {
-      "translate": "advancements.step2.description"
+      "translate": "advancements.enlightened.description"
     }
   },
-  "parent": "ageofprogress:step1",
+  "parent": "ageofprogress:iron",
   "criteria": {
-    "step2": {
+    "enlightened": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:chest",
+            "item": "minecraft:golden_rail",
             "count": {
               "min": 1
             }

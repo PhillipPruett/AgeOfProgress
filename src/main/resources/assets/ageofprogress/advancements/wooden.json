@@ -4,10 +4,10 @@
       "item": "minecraft:wooden_pickaxe"
     },
     "title": {
-      "translate": "advancements.step1.title"
+      "translate": "advancements.wooden.title"
     },
     "description": {
-      "translate": "advancements.step1.description"
+      "translate": "advancements.wooden.description"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "show_toast": true,
@@ -15,7 +15,7 @@
     "hidden": false
   },
   "criteria": {
-    "step1": {
+    "wooden": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -31,7 +31,7 @@
   },
   "requirements": [
     [
-      "step1"
+      "wooden"
     ]
   ]
 }

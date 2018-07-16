@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.iron.title"
+    },
+    "description": {
+      "translate": "advancements.iron.description"
+    }
+  },
+  "parent": "ageofprogress:stone",
+  "criteria": {
+    "iron": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:furnace",
+            "count": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    }
+  }
+}

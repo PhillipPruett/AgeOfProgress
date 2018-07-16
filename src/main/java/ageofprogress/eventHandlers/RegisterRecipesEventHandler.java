@@ -1,7 +1,7 @@
 package ageofprogress.eventHandlers;
 
+import ageofprogress.Age;
 import ageofprogress.RecipeHelper;
-import ageofprogress.Step;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
@@ -53,21 +53,21 @@ public class RegisterRecipesEventHandler {
     @SubscribeEvent
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
         System.out.println("REMOVING RECIPES");
-        IForgeRegistryModifiable modRegistry = (IForgeRegistryModifiable) event.getRegistry();
 
-        removeTechnology(event, modRegistry, redstoneAgeTechnology);
-        removeTechnology(event, modRegistry, enlightenedAgeTechnology);
-        removeTechnology(event, modRegistry, ironAgeTechnology);
-        removeTechnology(event, modRegistry, stoneAgeTechnology);
-        removeTechnology(event, modRegistry, woodenAgeTechnology);
+        removeTechnology(event, redstoneAgeTechnology, Age.redstone);
+        removeTechnology(event, enlightenedAgeTechnology, Age.enlightened);
+        removeTechnology(event, ironAgeTechnology, Age.iron);
+        removeTechnology(event, stoneAgeTechnology, Age.stone);
+        removeTechnology(event, woodenAgeTechnology, Age.wooden);
     }
 
-    private static void removeTechnology(RegistryEvent.Register<IRecipe> event, IForgeRegistryModifiable modRegistry, String[] redstoneAgeTechnology) {
+    private static void removeTechnology(RegistryEvent.Register<IRecipe> event, String[] redstoneAgeTechnology, Age age) {
+        IForgeRegistryModifiable modRegistry = (IForgeRegistryModifiable) event.getRegistry();
         Set<String> toBeRemoved = recursivelyRemoveTechnology(redstoneAgeTechnology, event.getRegistry().getEntries());
         for (String remove : toBeRemoved) {
             IForgeRegistryEntry entry = modRegistry.remove((new ResourceLocation(remove)));
             if(entry != null) {
-                RecipeHelper.removeRecipe(entry, Step.step1);
+                RecipeHelper.removeRecipe(entry, age);
             }
         }
     }

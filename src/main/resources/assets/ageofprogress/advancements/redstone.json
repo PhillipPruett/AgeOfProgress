@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:redstone"
+    },
+    "title": {
+      "translate": "advancements.redstone.title"
+    },
+    "description": {
+      "translate": "advancements.redstone.description"
+    }
+  },
+  "parent": "ageofprogress:enlightened",
+  "criteria": {
+    "redstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:enchanting_table",
+            "count": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    }
+  }
+}

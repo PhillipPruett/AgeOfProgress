@@ -10,23 +10,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeHelper {
-    private static List<IForgeRegistryEntry> step1Recipes = new ArrayList<>();
-    private static List<IForgeRegistryEntry> step2Recipes = new ArrayList<>();
+    private static List<IForgeRegistryEntry> woodenAgeRecipes = new ArrayList<>();
+    private static List<IForgeRegistryEntry> stoneAgeRecipes = new ArrayList<>();
+    private static List<IForgeRegistryEntry> ironAgeRecipes = new ArrayList<>();
+    private static List<IForgeRegistryEntry> enlightenedAgeRecipes = new ArrayList<>();
+    private static List<IForgeRegistryEntry> redstoneAgeRecipes = new ArrayList<>();
 
-    public static void discoverRecipes(Step step) {
-        switch (step) {
-            case step1:
-                addItemBackToCraftables(step1Recipes);
+    public static void discoverRecipes(Age age) {
+        switch (age) {
+            case wooden:
+                addItemBackToCraftables(woodenAgeRecipes);
+                break;
+            case stone:
+                addItemBackToCraftables(stoneAgeRecipes);
+                break;
+            case iron:
+                addItemBackToCraftables(ironAgeRecipes);
+                break;
+            case enlightened:
+                addItemBackToCraftables(enlightenedAgeRecipes);
+                break;
+            case redstone:
+                addItemBackToCraftables(redstoneAgeRecipes);
                 break;
             default:
                 break;
         }
     }
 
-    public static void removeRecipe(IForgeRegistryEntry entry, Step step) {
-        switch (step) {
-            case step1:
-                step1Recipes.add(entry);
+    public static void removeRecipe(IForgeRegistryEntry entry, Age age) {
+        switch (age) {
+            case wooden:
+                woodenAgeRecipes.add(entry);
+                break;
+            case stone:
+                stoneAgeRecipes.add(entry);
+                break;
+            case iron:
+                ironAgeRecipes.add(entry);
+                break;
+            case enlightened:
+                enlightenedAgeRecipes.add(entry);
+                break;
+            case redstone:
+                redstoneAgeRecipes.add(entry);
                 break;
             default:
                 break;
@@ -53,8 +80,8 @@ public class RecipeHelper {
 
     public static Iterable<IForgeRegistryEntry> getBlackListedRecipes() {
         List<IForgeRegistryEntry> blacklistedRecipes = new ArrayList<>();
-        blacklistedRecipes.addAll(step1Recipes);
-        blacklistedRecipes.addAll(step2Recipes);
+        blacklistedRecipes.addAll(woodenAgeRecipes);
+        blacklistedRecipes.addAll(stoneAgeRecipes);
         return blacklistedRecipes;
     }
 }

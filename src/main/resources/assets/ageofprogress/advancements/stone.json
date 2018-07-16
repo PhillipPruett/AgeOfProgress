@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:stone_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.stone.title"
+    },
+    "description": {
+      "translate": "advancements.stone.description"
+    }
+  },
+  "parent": "ageofprogress:wooden",
+  "criteria": {
+    "stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:chest",
+            "count": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    }
+  }
+}
